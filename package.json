@@ -1,0 +1,40 @@
+{
+  "name": "token-spend-dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node start.cjs",
+    "dev": "node start.cjs",
+    "server": "npx tsx server/index.ts",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "description": "Token Usage Dashboard Backend",
+  "main": "start.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "react-router-dom": "^7.15.0",
+    "recharts": "^3.8.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.2.4",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.6.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.1",
+    "autoprefixer": "^10.5.0",
+    "postcss": "^8.5.14",
+    "tailwindcss": "^4.2.4",
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.3",
+    "vite": "^8.0.11"
+  }
+}
