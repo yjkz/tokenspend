@@ -31,5 +31,9 @@ const en = {
   requestDetails: 'Request Details',
   search: 'Search sessions...',
   allProjects: 'All Projects',
+  rounds: 'Conversation Rounds',
+  roundsCount: 'rounds',
+  thinking: 'Thinking',
+  toolCall: 'Tool Call',
 } as const
 export default en

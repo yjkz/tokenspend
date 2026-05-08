@@ -31,5 +31,9 @@ const zh = {
   requestDetails: '请求详情',
   search: '搜索会话...',
   allProjects: '所有项目',
+  rounds: '对话轮次',
+  roundsCount: '轮',
+  thinking: '思考',
+  toolCall: '工具调用',
 } as const
 export default zh

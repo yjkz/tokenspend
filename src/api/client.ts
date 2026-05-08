@@ -1,4 +1,4 @@
-import type { DashboardData, SessionSummary, SessionDetail, ProjectInfo } from '../types'
+import type { DashboardData, SessionSummary, SessionDetail, ProjectInfo, ConversationRound } from '../types'
 
 const API_BASE = '/api'
 
@@ -23,4 +23,8 @@ export function fetchSessionDetail(id: string): Promise<SessionDetail> {
 
 export function fetchProjects(): Promise<ProjectInfo[]> {
   return request('/projects')
+}
+
+export function fetchSessionRounds(id: string): Promise<ConversationRound[]> {
+  return request(`/sessions/${encodeURIComponent(id)}/rounds`)
 }

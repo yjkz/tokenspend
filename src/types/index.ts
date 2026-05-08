@@ -60,3 +60,25 @@ export interface ProjectInfo {
   sessionCount: number
   totalTokens: number
 }
+
+export interface RoundMessage {
+  role: 'user' | 'assistant'
+  content: string
+  thinking?: string
+  toolCalls?: Array<{ name: string; input: string }>
+  timestamp: string
+}
+
+export interface ConversationRound {
+  index: number
+  userMessage: string
+  userMessageFull: string
+  timestamp: string
+  totalInputTokens: number
+  totalOutputTokens: number
+  totalCacheReadTokens: number
+  totalCacheCreationTokens: number
+  totalTokens: number
+  model: string
+  messages: RoundMessage[]
+}
