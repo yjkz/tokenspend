@@ -63,7 +63,11 @@ export default function SessionDetailPage() {
         <p className="text-xs text-gray-400 mt-0.5">{data.projectPath || data.projectDir} &middot; {formatTime(data.firstTimestamp, locale)} — {formatTime(data.lastTimestamp, locale)}</p>
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+      <div className="grid grid-cols-3 sm:grid-cols-5 gap-3">
+        <div className="bg-white rounded-xl p-3 border border-pink-200 shadow-sm">
+          <p className="text-xs text-gray-400">{t('total')}</p>
+          <p className="text-lg font-bold text-gray-800">{formatNum(data.totalInputTokens + data.totalOutputTokens + data.totalCacheReadTokens + data.totalCacheCreationTokens)}</p>
+        </div>
         <div className="bg-white rounded-xl p-3 border border-pink-200 shadow-sm">
           <p className="text-xs text-gray-400">{t('input')}</p>
           <p className="text-lg font-bold text-pink-500">{formatNum(data.totalInputTokens)}</p>
