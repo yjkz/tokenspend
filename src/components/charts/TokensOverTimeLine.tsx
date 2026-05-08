@@ -22,7 +22,7 @@ export default function TokensOverTimeLine({ data }: { data: DataPoint[] }) {
 
   return (
     <div className="glow-card rounded-xl p-5">
-      <h3 className="text-sm font-medium text-amber-400/80 mb-4 tracking-wide uppercase">{t('tokensOverTime')}</h3>
+      <h3 className="text-sm font-medium text-pink-300/80 mb-4 tracking-wide uppercase">{t('tokensOverTime')}</h3>
       <ResponsiveContainer width="100%" height={280}>
         <LineChart data={data}>
           <XAxis
@@ -39,14 +39,14 @@ export default function TokensOverTimeLine({ data }: { data: DataPoint[] }) {
           />
           <Tooltip
             formatter={(v: number) => formatNum(v)}
-            contentStyle={{ background: '#1a2028', border: '1px solid rgba(251,191,36,0.15)', borderRadius: 8, boxShadow: '0 4px 12px rgba(0,0,0,0.3)' }}
+            contentStyle={{ background: '#1c1622', border: '1px solid rgba(244,114,182,0.15)', borderRadius: 8, boxShadow: '0 4px 12px rgba(0,0,0,0.3)' }}
           />
           <Legend
             formatter={(v) => <span className="text-gray-300 text-xs">{v}</span>}
           />
-          <Line type="monotone" dataKey="input" stroke="#fbbf24" name={t('input')} dot={false} strokeWidth={2} />
+          <Line type="monotone" dataKey="input" stroke="#f472b6" name={t('input')} dot={false} strokeWidth={2} />
           <Line type="monotone" dataKey="output" stroke="#fb923c" name={t('output')} dot={false} strokeWidth={2} />
-          <Line type="monotone" dataKey="cacheRead" stroke="#92400e" name={t('cacheRead')} dot={false} strokeDasharray="5 5" strokeWidth={1.5} />
+          <Line type="monotone" dataKey="cacheRead" stroke="#6b2150" name={t('cacheRead')} dot={false} strokeDasharray="5 5" strokeWidth={1.5} />
         </LineChart>
       </ResponsiveContainer>
     </div>

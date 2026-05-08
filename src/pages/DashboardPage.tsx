@@ -30,7 +30,7 @@ export default function DashboardPage() {
 
   if (loading) return (
     <div className="flex items-center justify-center h-64">
-      <div className="text-amber-400/60 animate-pulse text-sm tracking-widest uppercase">{t('loading')}</div>
+      <div className="text-pink-300/60 animate-pulse text-sm tracking-widest uppercase">{t('loading')}</div>
     </div>
   )
   if (!data) return <div className="text-red-400 p-8">{t('failedToLoad')}</div>
@@ -49,16 +49,16 @@ export default function DashboardPage() {
   return (
     <div className="space-y-6">
       <h2 className="text-xl font-bold animate-fade-in">
-        <span className="bg-gradient-to-r from-amber-200 via-yellow-100 to-orange-200 bg-clip-text text-transparent">
+        <span className="bg-gradient-to-r from-pink-300 via-rose-200 to-orange-200 bg-clip-text text-transparent">
           {t('dashboard')}
         </span>
       </h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <StatCard title={t('totalTokens')} value={formatNum(totalTokens)} subtitle={`${data.totalRequests} ${t('requests')}`} color="#fbbf24" index={0} />
-        <StatCard title={t('sessions')} value={data.totalSessions} color="#34d399" index={1} />
-        <StatCard title={t('cacheHitRate')} value={cacheHitRate} subtitle={`${formatNum(data.totalCacheReadTokens)} ${t('cached')}`} color="#fb923c" index={2} />
-        <StatCard title={t('avgTokensSession')} value={formatNum(avgPerSession)} color="#f472b6" index={3} />
+        <StatCard title={t('totalTokens')} value={formatNum(totalTokens)} subtitle={`${data.totalRequests} ${t('requests')}`} color="#f472b6" index={0} />
+        <StatCard title={t('sessions')} value={data.totalSessions} color="#fb923c" index={1} />
+        <StatCard title={t('cacheHitRate')} value={cacheHitRate} subtitle={`${formatNum(data.totalCacheReadTokens)} ${t('cached')}`} color="#f9a8d4" index={2} />
+        <StatCard title={t('avgTokensSession')} value={formatNum(avgPerSession)} color="#ff8c5a" index={3} />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
@@ -75,7 +75,7 @@ export default function DashboardPage() {
           <TokensOverTimeLine data={lineData} />
         </div>
         <div className="glow-card rounded-xl p-5 animate-fade-in-up delay-8">
-          <h3 className="text-sm font-medium text-amber-400/80 mb-4 tracking-wide uppercase">{t('topSessions')}</h3>
+          <h3 className="text-sm font-medium text-pink-300/80 mb-4 tracking-wide uppercase">{t('topSessions')}</h3>
           <div className="space-y-2.5">
             {data.topSessions.slice(0, 8).map((s, i) => {
               const total = s.totalInputTokens + s.totalOutputTokens + s.totalCacheReadTokens + s.totalCacheCreationTokens
@@ -83,7 +83,7 @@ export default function DashboardPage() {
                 ? data.topSessions[0].totalInputTokens + data.topSessions[0].totalOutputTokens + data.topSessions[0].totalCacheReadTokens + data.topSessions[0].totalCacheCreationTokens
                 : 1
               const width = Math.max(2, (total / maxTotal) * 100)
-              const colors = ['#fbbf24', '#fb923c', '#f472b6', '#a78bfa', '#34d399', '#38bdf8', '#f87171', '#94a3b8']
+              const colors = ['#f472b6', '#fb923c', '#f9a8d4', '#ff8c5a', '#ec4899', '#fbbf24', '#ff7f7f', '#c084fc']
               return (
                 <div key={s.sessionId} className="flex items-center gap-3 group">
                   <div className="w-28 text-xs text-gray-500 truncate group-hover:text-gray-300 transition-colors" title={s.title || s.sessionId}>

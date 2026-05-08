@@ -2,7 +2,7 @@ import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, Legend } from 'recha
 import type { TokenUsage } from '../../types'
 import { useLanguage } from '../../i18n'
 
-const COLORS = ['#fbbf24', '#fb923c', '#f472b6', '#a78bfa', '#34d399']
+const COLORS = ['#f472b6', '#fb923c', '#f9a8d4', '#ff8c5a', '#ec4899']
 
 function formatNum(n: number) {
   if (n >= 1_000_000) return (n / 1_000_000).toFixed(1) + 'M'
@@ -23,7 +23,7 @@ export default function TokensByModelPie({ data }: { data: Record<string, TokenU
 
   return (
     <div className="glow-card rounded-xl p-5">
-      <h3 className="text-sm font-medium text-amber-400/80 mb-4 tracking-wide uppercase">{t('tokensByModel')}</h3>
+      <h3 className="text-sm font-medium text-pink-300/80 mb-4 tracking-wide uppercase">{t('tokensByModel')}</h3>
       <ResponsiveContainer width="100%" height={280}>
         <PieChart>
           <Pie

@@ -79,7 +79,7 @@ export default function SessionTable({ sessions }: { sessions: SessionSummary[] 
             value={search}
             onChange={e => setSearch(e.target.value)}
             placeholder={t('search')}
-            className="w-full bg-white/[0.04] border border-amber-500/10 rounded-lg px-4 py-2.5 text-sm text-gray-200 placeholder-gray-500 focus:outline-none focus:border-amber-500/30 focus:ring-1 focus:ring-amber-500/20 transition-all"
+            className="w-full bg-white/[0.04] border border-pink-500/10 rounded-xl px-4 py-2.5 text-sm text-gray-200 placeholder-gray-500 focus:outline-none focus:border-pink-500/30 focus:ring-1 focus:ring-pink-500/20 transition-all"
           />
           {search && (
             <button
@@ -93,7 +93,7 @@ export default function SessionTable({ sessions }: { sessions: SessionSummary[] 
         <select
           value={projectFilter}
           onChange={e => setProjectFilter(e.target.value)}
-          className="bg-white/[0.04] border border-amber-500/10 rounded-lg px-3 py-2.5 text-sm text-gray-300 focus:outline-none focus:border-amber-500/30 appearance-none cursor-pointer min-w-[160px]"
+          className="bg-white/[0.04] border border-pink-500/10 rounded-xl px-3 py-2.5 text-sm text-gray-300 focus:outline-none focus:border-pink-500/30 appearance-none cursor-pointer min-w-[160px]"
         >
           <option value="">{t('allProjects')} ({sessions.length})</option>
           {projects.map(([path, count]) => (
@@ -140,10 +140,10 @@ export default function SessionTable({ sessions }: { sessions: SessionSummary[] 
                   <td className="py-2.5 pr-4 text-gray-200 truncate max-w-[200px]">{s.title || s.sessionId.slice(0, 8)}</td>
                   <td className="py-2.5 pr-4 text-gray-500 text-xs">{s.projectPath || s.projectDir}</td>
                   <td className="py-2.5 pr-4 text-gray-400">{formatDate(s.lastTimestamp, lang === 'zh' ? 'zh-CN' : 'en-US')}</td>
-                  <td className="py-2.5 pr-4 text-right text-amber-400">{formatNum(s.totalInputTokens)}</td>
-                  <td className="py-2.5 pr-4 text-right text-orange-400">{formatNum(s.totalOutputTokens)}</td>
+                  <td className="py-2.5 pr-4 text-right text-pink-400">{formatNum(s.totalInputTokens)}</td>
+                  <td className="py-2.5 pr-4 text-right text-orange-300">{formatNum(s.totalOutputTokens)}</td>
                   <td className="py-2.5 pr-4 text-right text-gray-500">{formatNum(s.totalCacheReadTokens)}</td>
-                  <td className="py-2.5 pr-4 text-right text-amber-200 font-medium">{formatNum(total)}</td>
+                  <td className="py-2.5 pr-4 text-right text-pink-200 font-medium">{formatNum(total)}</td>
                   <td className="py-2.5 text-right text-gray-400">{s.requestCount}</td>
                 </tr>
               )
