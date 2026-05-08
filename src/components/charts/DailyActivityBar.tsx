@@ -23,7 +23,7 @@ export default function DailyActivityBar({ data }: { data: DayData[] }) {
 
   return (
     <div className="glow-card rounded-xl p-5">
-      <h3 className="text-sm font-medium text-pink-300/80 mb-4 tracking-wide uppercase">{t('dailyTokenUsage')}</h3>
+      <h3 className="text-sm font-semibold text-pink-400 mb-4 tracking-wide uppercase">{t('dailyTokenUsage')}</h3>
       <ResponsiveContainer width="100%" height={280}>
         <BarChart data={data}>
           <XAxis
@@ -40,7 +40,7 @@ export default function DailyActivityBar({ data }: { data: DayData[] }) {
           />
           <Tooltip
             formatter={(v: number) => formatNum(v)}
-            contentStyle={{ background: '#1c1622', border: '1px solid rgba(244,114,182,0.15)', borderRadius: 8, boxShadow: '0 4px 12px rgba(0,0,0,0.3)' }}
+            contentStyle={{ background: '#ffffff', border: '1px solid rgba(244,114,182,0.2)', borderRadius: 8, boxShadow: '0 4px 12px rgba(0,0,0,0.08)', color: '#3d2c3e' }}
           />
           <Legend
             formatter={(v) => <span className="text-gray-300 text-xs">{v}</span>}

@@ -23,7 +23,7 @@ export default function TokensByModelPie({ data }: { data: Record<string, TokenU
 
   return (
     <div className="glow-card rounded-xl p-5">
-      <h3 className="text-sm font-medium text-pink-300/80 mb-4 tracking-wide uppercase">{t('tokensByModel')}</h3>
+      <h3 className="text-sm font-semibold text-pink-400 mb-4 tracking-wide uppercase">{t('tokensByModel')}</h3>
       <ResponsiveContainer width="100%" height={280}>
         <PieChart>
           <Pie

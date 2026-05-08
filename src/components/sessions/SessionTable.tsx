@@ -79,12 +79,12 @@ export default function SessionTable({ sessions }: { sessions: SessionSummary[] 
             value={search}
             onChange={e => setSearch(e.target.value)}
             placeholder={t('search')}
-            className="w-full bg-white/[0.04] border border-pink-500/10 rounded-xl px-4 py-2.5 text-sm text-gray-200 placeholder-gray-500 focus:outline-none focus:border-pink-500/30 focus:ring-1 focus:ring-pink-500/20 transition-all"
+            className="w-full bg-white border border-pink-200 rounded-xl px-4 py-2.5 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-pink-400 focus:ring-2 focus:ring-pink-100 transition-all shadow-sm"
           />
           {search && (
             <button
               onClick={() => setSearch('')}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-300 text-xs"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-pink-400 text-xs"
             >
               ✕
             </button>
@@ -93,7 +93,7 @@ export default function SessionTable({ sessions }: { sessions: SessionSummary[] 
         <select
           value={projectFilter}
           onChange={e => setProjectFilter(e.target.value)}
-          className="bg-white/[0.04] border border-pink-500/10 rounded-xl px-3 py-2.5 text-sm text-gray-300 focus:outline-none focus:border-pink-500/30 appearance-none cursor-pointer min-w-[160px]"
+          className="bg-white border border-pink-200 rounded-xl px-3 py-2.5 text-sm text-gray-600 focus:outline-none focus:border-pink-400 appearance-none cursor-pointer min-w-[160px] shadow-sm"
         >
           <option value="">{t('allProjects')} ({sessions.length})</option>
           {projects.map(([path, count]) => (
@@ -111,19 +111,19 @@ export default function SessionTable({ sessions }: { sessions: SessionSummary[] 
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead>
-            <tr className="text-left text-gray-400 border-b border-gray-700">
+            <tr className="text-left text-gray-500 border-b border-pink-200/60">
               <th className="pb-2 pr-4">{t('title')}</th>
               <th className="pb-2 pr-4">{t('project')}</th>
-              <th className="pb-2 pr-4 cursor-pointer hover:text-white" onClick={() => toggleSort('lastTimestamp')}>
+              <th className="pb-2 pr-4 cursor-pointer hover:text-pink-500" onClick={() => toggleSort('lastTimestamp')}>
                 {t('date')}{arrow('lastTimestamp')}
               </th>
               <th className="pb-2 pr-4 text-right">{t('input')}</th>
               <th className="pb-2 pr-4 text-right">{t('output')}</th>
               <th className="pb-2 pr-4 text-right">{t('cacheRead')}</th>
-              <th className="pb-2 pr-4 text-right cursor-pointer hover:text-white" onClick={() => toggleSort('totalTokens')}>
+              <th className="pb-2 pr-4 text-right cursor-pointer hover:text-pink-500" onClick={() => toggleSort('totalTokens')}>
                 {t('total')}{arrow('totalTokens')}
               </th>
-              <th className="pb-2 text-right cursor-pointer hover:text-white" onClick={() => toggleSort('requestCount')}>
+              <th className="pb-2 text-right cursor-pointer hover:text-pink-500" onClick={() => toggleSort('requestCount')}>
                 {t('requests')}{arrow('requestCount')}
               </th>
             </tr>
@@ -134,17 +134,17 @@ export default function SessionTable({ sessions }: { sessions: SessionSummary[] 
               return (
                 <tr
                   key={s.sessionId}
-                  className="border-b border-gray-800/50 hover:bg-white/[0.02] cursor-pointer transition-colors"
+                  className="border-b border-pink-100 hover:bg-pink-50/50 cursor-pointer transition-colors"
                   onClick={() => navigate(`/sessions/${s.sessionId}`)}
                 >
-                  <td className="py-2.5 pr-4 text-gray-200 truncate max-w-[200px]">{s.title || s.sessionId.slice(0, 8)}</td>
-                  <td className="py-2.5 pr-4 text-gray-500 text-xs">{s.projectPath || s.projectDir}</td>
-                  <td className="py-2.5 pr-4 text-gray-400">{formatDate(s.lastTimestamp, lang === 'zh' ? 'zh-CN' : 'en-US')}</td>
-                  <td className="py-2.5 pr-4 text-right text-pink-400">{formatNum(s.totalInputTokens)}</td>
-                  <td className="py-2.5 pr-4 text-right text-orange-300">{formatNum(s.totalOutputTokens)}</td>
-                  <td className="py-2.5 pr-4 text-right text-gray-500">{formatNum(s.totalCacheReadTokens)}</td>
-                  <td className="py-2.5 pr-4 text-right text-pink-200 font-medium">{formatNum(total)}</td>
-                  <td className="py-2.5 text-right text-gray-400">{s.requestCount}</td>
+                  <td className="py-2.5 pr-4 text-gray-800 truncate max-w-[200px]">{s.title || s.sessionId.slice(0, 8)}</td>
+                  <td className="py-2.5 pr-4 text-gray-400 text-xs">{s.projectPath || s.projectDir}</td>
+                  <td className="py-2.5 pr-4 text-gray-500">{formatDate(s.lastTimestamp, lang === 'zh' ? 'zh-CN' : 'en-US')}</td>
+                  <td className="py-2.5 pr-4 text-right text-pink-500">{formatNum(s.totalInputTokens)}</td>
+                  <td className="py-2.5 pr-4 text-right text-orange-400">{formatNum(s.totalOutputTokens)}</td>
+                  <td className="py-2.5 pr-4 text-right text-gray-400">{formatNum(s.totalCacheReadTokens)}</td>
+                  <td className="py-2.5 pr-4 text-right text-pink-600 font-medium">{formatNum(total)}</td>
+                  <td className="py-2.5 text-right text-gray-500">{s.requestCount}</td>
                 </tr>
               )
             })}

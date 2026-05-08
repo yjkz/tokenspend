@@ -13,11 +13,11 @@ export default function SessionsPage() {
     fetchSessions().then(setSessions).catch(console.error).finally(() => setLoading(false))
   }, [])
 
-  if (loading) return <div className="text-gray-400 p-8">{t('loading')}</div>
+  if (loading) return <div className="text-pink-400 p-8">{t('loading')}</div>
 
   return (
     <div className="space-y-4">
-      <h2 className="text-xl font-bold text-white">{t('sessions')} ({sessions.length})</h2>
+      <h2 className="text-xl font-bold text-gray-800">{t('sessions')} ({sessions.length})</h2>
       <SessionTable sessions={sessions} />
     </div>
   )

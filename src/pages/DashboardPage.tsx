@@ -30,7 +30,7 @@ export default function DashboardPage() {
 
   if (loading) return (
     <div className="flex items-center justify-center h-64">
-      <div className="text-pink-300/60 animate-pulse text-sm tracking-widest uppercase">{t('loading')}</div>
+      <div className="text-pink-400 animate-pulse text-sm tracking-widest uppercase">{t('loading')}</div>
     </div>
   )
   if (!data) return <div className="text-red-400 p-8">{t('failedToLoad')}</div>
@@ -49,7 +49,7 @@ export default function DashboardPage() {
   return (
     <div className="space-y-6">
       <h2 className="text-xl font-bold animate-fade-in">
-        <span className="bg-gradient-to-r from-pink-300 via-rose-200 to-orange-200 bg-clip-text text-transparent">
+        <span className="bg-gradient-to-r from-pink-400 via-rose-400 to-orange-400 bg-clip-text text-transparent">
           {t('dashboard')}
         </span>
       </h2>
@@ -75,7 +75,7 @@ export default function DashboardPage() {
           <TokensOverTimeLine data={lineData} />
         </div>
         <div className="glow-card rounded-xl p-5 animate-fade-in-up delay-8">
-          <h3 className="text-sm font-medium text-pink-300/80 mb-4 tracking-wide uppercase">{t('topSessions')}</h3>
+          <h3 className="text-sm font-semibold text-pink-400 mb-4 tracking-wide uppercase">{t('topSessions')}</h3>
           <div className="space-y-2.5">
             {data.topSessions.slice(0, 8).map((s, i) => {
               const total = s.totalInputTokens + s.totalOutputTokens + s.totalCacheReadTokens + s.totalCacheCreationTokens
@@ -86,10 +86,10 @@ export default function DashboardPage() {
               const colors = ['#f472b6', '#fb923c', '#f9a8d4', '#ff8c5a', '#ec4899', '#fbbf24', '#ff7f7f', '#c084fc']
               return (
                 <div key={s.sessionId} className="flex items-center gap-3 group">
-                  <div className="w-28 text-xs text-gray-500 truncate group-hover:text-gray-300 transition-colors" title={s.title || s.sessionId}>
+                  <div className="w-28 text-xs text-gray-500 truncate group-hover:text-pink-500 transition-colors" title={s.title || s.sessionId}>
                     {s.title || s.sessionId.slice(0, 8)}
                   </div>
-                  <div className="flex-1 bg-white/[0.04] rounded-full h-5 relative overflow-hidden">
+                  <div className="flex-1 bg-pink-100 rounded-full h-5 relative overflow-hidden">
                     <div
                       className="h-full rounded-full transition-all duration-700 ease-out"
                       style={{
@@ -99,7 +99,7 @@ export default function DashboardPage() {
                       }}
                     />
                   </div>
-                  <div className="w-16 text-right text-xs font-mono text-gray-400">{formatNum(total)}</div>
+                  <div className="w-16 text-right text-xs font-mono text-gray-500">{formatNum(total)}</div>
                 </div>
               )
             })}
